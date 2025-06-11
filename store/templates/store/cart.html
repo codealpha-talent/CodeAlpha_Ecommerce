@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Panier</title>
+</head>
+<body>
+    <h1>Votre panier</h1>
+
+    {% if items %}
+        <ul>
+            {% for item in items %}
+                <li>
+                    {{ item.produit.name }} — {{ item.quantite }} x {{ item.produit.price }} €
+                    = {{ item.get_total }} €
+                </li>
+            {% endfor %}
+        </ul>
+        <p>Total : {{ total }} €</p>
+    {% else %}
+        <p>Votre panier est vide.</p>
+    {% endif %}
+
+    <a href="{% url 'home' %}">Retour aux produits</a>
+</body>
+</html>
+<form method="post" action="{% url 'valider_commande' %}">
+    {% csrf_token %}
+    <button type="submit">Commander</button>
+</form>
+
+

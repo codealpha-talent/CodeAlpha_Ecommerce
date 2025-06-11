@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ma Boutique</title>
+</head>
+<body>
+
+  <!-- 🔐 Bloc de connexion/déconnexion -->
+  {% if user.is_authenticated %}
+    Bonjour {{ user.username }} |
+    <a href="{% url 'logout' %}">Déconnexion</a> |
+    <a href="{% url 'cart_detail' %}">Mon panier</a>
+  {% else %}
+    <a href="{% url 'login' %}">Connexion</a> |
+    <a href="{% url 'register' %}">Inscription</a>
+  {% endif %}
+
+  <h1>Bienvenue dans ma boutique !</h1>
+
+  {% if products %}
+    <ul>
+      {% for product in products %}
+        <li>
+          <h3>
+            <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a>
+          </h3>
+          {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" width="200">
+          {% else %}
+            <p>Pas d'image disponible</p>
+          {% endif %}
+          <p>{{ product.description }}</p>
+          <p>Prix : {{ product.price }} €</p>
+          <form method="post" action="{% url 'add_to_cart' product.id %}">
+            {% csrf_token %}
+            <button type="submit">Ajouter au panier</button>
+          </form>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Aucun produit disponible pour le moment.</p>
+  {% endif %}
+
+  <a href="{% url 'cart_detail' %}">Voir le panier</a>
+
+</body>
+</html>
