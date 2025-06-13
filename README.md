@@ -25,11 +25,8 @@ This is a basic e-commerce website for a flower shop, created as part of **Task 
 
 ## 📷 Screenshots
 
-> You can add screenshots by uploading image files  
-> and using Markdown like this:
-
-```markdown
-![Homepage Screenshot](media/screenshots/home.png)
+### 🏠 Homepage
+![Homepage Screenshot](media/screenshots/homepage.png)
 
 ---
 
