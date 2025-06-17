@@ -34,6 +34,10 @@ This is a basic e-commerce website for a flower shop, created as part of **Task 
 ### 📝 Registerpage
 ![Registerpage Screenshot](media/screenshots/registerpage.png)
 
+### 🛒 Shopping Cart
+![Cart Screenshot](media/screenshots/cart.png)
+
+
 ---
 
 ## 🚀 How to Run Locally
