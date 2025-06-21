@@ -21,18 +21,18 @@ def add_to_cart(request, product_id):
     produit = Product.objects.get(id=product_id)
     utilisateur = request.user
 
-    # On cherche une commande existante qui n'est pas encore complétée
+    
     commande, created = Commande.objects.get_or_create(utilisateur=utilisateur, complete=False)
 
-    # On cherche si le produit est déjà dans la commande
+    
     ligne, created = LigneCommande.objects.get_or_create(commande=commande, produit=produit)
 
-    # Si déjà présent, on augmente la quantité
+    
     if not created:
         ligne.quantite += 1
         ligne.save()
 
-    return redirect('cart_detail')  # Tu vas créer cette vue juste après
+    return redirect('cart_detail')  
 @login_required
 def cart_detail(request):
     utilisateur = request.user
