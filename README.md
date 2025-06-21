@@ -75,7 +75,8 @@ Watch the full demo of the project here:
 
 **Aya Boussader**  
 Second-year student at ENSA Marrakech  
-Created for the **CodeAlpha Summer Internship 2025**
+Created for the **CodeAlpha Summer Internship 2025**  
+🔗 [LinkedIn Profile](http://www.linkedin.com/in/aya-boussader-a6b043339)
 
 ---
 
